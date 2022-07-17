@@ -1,0 +1,59 @@
+          /*
+            this container show the orange dooted part of the card/ticket
+             */
+            Container(
+              color: Styles.orangeColor,
+              child: Row(
+                children:  [
+                  const SizedBox(
+                    height: 20,
+                    width: 10,
+                    child: DecoratedBox(decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(10),
+                        bottomRight: Radius.circular(10),
+                      )
+                    )),
+                  ),
+                  Expanded(child:
+                  LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints) {
+                    return Flex(
+                      direction: Axis.horizontal,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisSize: MainAxisSize.max,
+                      children: List.generate((constraints.constrainWidth()/15).floor(), (index) => SizedBox(
+                        width: 7,height: 2, child: DecoratedBox(decoration: BoxDecoration(
+                          color: Colors.white
+                      ),),
+                      )),
+                    );
+                  },
+
+                  )),
+                  const SizedBox(
+                    height: 20,
+                    width: 10,
+                    child: DecoratedBox(decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        bottomLeft: Radius.circular(10),
+                      )
+                    )),
+                  ),
+                ],
+              ),
+            ),
+            /*
+            this container show the orange last part of the card/ticket
+             */
+            Container(
+              decoration:  BoxDecoration(
+                color: Styles.orangeColor,
+                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(21),
+                    bottomRight: Radius.circular(21)),
+
+              ),
+              margin: const EdgeInsets.only(left: 16),
+            ),
